@@ -6,7 +6,7 @@ function PdfSummary() {
 
   const getSummaryHandler = () => {
     axios
-      .get("http://localhost:5000/pdfs/64484f9a545335eea3db42d9", {
+      .get("http://localhost:5000/pdfs/6448f28201613e80daae61c3", {
         headers: {
           "Content-Type": "application/json",
         },
