@@ -1,34 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
-function App() {
-  const [inputText, setInputText] = useState("");
-  const [responseText, setResponseText] = useState("");
+function CompareApp() {
+  const { pdfId } = useParams();
+  const [recommendation, setRecommendation] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleButtonClick = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/files/${inputText}`
-      );
-      setResponseText(response.data);
+      const response = await axios.get(`http://127.0.0.1:5000/files/${pdfId}`);
+
+      setRecommendation(response.data); // set response data to state variable
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {responseText && <div>{responseText}</div>}
+      <button onClick={handleButtonClick}>View Recommendation</button>
+      <p>{recommendation}</p> {/* display response data */}
+      <Link to="/mainmenu" className="mt-6">
+        <button>Return to Main Menu</button>
+      </Link>
     </div>
   );
 }
 
-export default App;
+export default CompareApp;
