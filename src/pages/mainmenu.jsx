@@ -10,7 +10,7 @@ function MainMenu() {
             Document Recommendation
           </button>
         </Link>
-        <Link to="/summary">
+        <Link to="/upload">
           <button className="bg-gray-800 text-white py-3 px-8 rounded-lg">
             Summarization
           </button>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Document from "../components/viewdoc";
 
 function CompareApp() {
@@ -47,7 +47,11 @@ function CompareApp() {
               <td className="px-12 py-4 whitespace-nowrap">{key}</td>
               <td className="px-12 py-4 whitespace-nowrap">{value}%</td>
               <td className="px-12 py-4 whitespace-nowrap">
-                <Document documentId={key} />
+                <Link to={`/document/${key}`}>
+                  <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    View Document
+                  </button>
+                </Link>
               </td>
             </tr>
           ))}
