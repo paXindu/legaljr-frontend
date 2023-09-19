@@ -10,9 +10,11 @@ function CompareApp() {
   const handleButtonClick = async () => {
     try {
       const response = await axios.get(`http://127.0.0.1:5000/files/${pdfId}`);
-
-      setRecommendation(response.data); // set response data to state variable
-      console.log(response.data);
+      const sortedRecommendation = Object.entries(response.data).sort(
+        (b, a) => a[1] - b[1]
+      );
+      const sortedRecommendationObject = Object.fromEntries(sortedRecommendation);
+      setRecommendation(sortedRecommendationObject);
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +43,7 @@ function CompareApp() {
             </th>
           </tr>
         </thead>
-        <tbody className=" bg-white divide-y divide-gray-200  ">
+        <tbody className=" bg-white divide-y divide-gray-200">
           {Object.entries(recommendation).map(([key, value]) => (
             <tr className="hover:bg-gray-100" key={key}>
               <td className="px-12 py-4 whitespace-nowrap">{key}</td>

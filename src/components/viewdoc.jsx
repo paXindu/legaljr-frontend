@@ -46,7 +46,7 @@ function Document() {
       </div>
       <div class="border-2 border-gray-400 p-4">
         {text && (
-          <div class="bg-gray-200 p-2 rounded">
+          <div class="bg-gray-200 p-1 py-1 px-20 rounded">
             <p class="text-gray-800">{text}</p>
           </div>
         )}

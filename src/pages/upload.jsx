@@ -38,7 +38,7 @@ function PdfUploader() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center py-20 px-12">
       <div className="mb-8">
         <label className="block font-medium mb-2" htmlFor="pdf-upload">
           Select PDF file to upload:
@@ -51,7 +51,7 @@ function PdfUploader() {
         />
       </div>
       <button
-        className="bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-red-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded"
         onClick={fileUploadHandler}
         disabled={!selectedFile}
       >
